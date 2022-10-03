@@ -35,7 +35,11 @@ function Navbar({ isMobile }) {
         >
           <nav className="nav">
             <div id="logo-nav-container">
-              <img src="./public/BSlogo.png" alt="logo" id="navbarLogo" />
+              <img
+                src="https://raw.githubusercontent.com/DorPlaut/BlackSachbakSite/main/public/BSlogo.png"
+                alt="logo"
+                id="navbarLogo"
+              />
 
               <NavLinks isMobile={isMobile} />
             </div>
@@ -48,7 +52,11 @@ function Navbar({ isMobile }) {
         <nav className="nav">
           <div id="logo-nav-container">
             <a href="#homePage">
-              <img src="./public/BSlogo.png" alt="logo" id="navbarLogo" />
+              <img
+                src="https://raw.githubusercontent.com/DorPlaut/BlackSachbakSite/main/public/BSlogo.png"
+                alt="logo"
+                id="navbarLogo"
+              />
             </a>
 
             <NavLinks />

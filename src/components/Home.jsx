@@ -9,7 +9,11 @@ function Home({ isMobile }) {
         <div id="social-links-home">
           <SocialLinks />
         </div>
-        <img src="./public/BSlogo.png" alt="logo" id="HomePageLogo" />
+        <img
+          src="https://raw.githubusercontent.com/DorPlaut/BlackSachbakSite/main/public/BSlogo.png"
+          alt="logo"
+          id="HomePageLogo"
+        />
         <div id="homeNav">
           <NavLinks isMobile={isMobile} />
         </div>
