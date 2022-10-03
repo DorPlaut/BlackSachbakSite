@@ -35,7 +35,7 @@ function Navbar({ isMobile }) {
         >
           <nav className="nav">
             <div id="logo-nav-container">
-              <img src="../src/assets/BSlogo.png" alt="logo" id="navbarLogo" />
+              <img src="./public/BSlogo.png" alt="logo" id="navbarLogo" />
 
               <NavLinks isMobile={isMobile} />
             </div>
@@ -48,7 +48,7 @@ function Navbar({ isMobile }) {
         <nav className="nav">
           <div id="logo-nav-container">
             <a href="#homePage">
-              <img src="../src/assets/BSlogo.png" alt="logo" id="navbarLogo" />
+              <img src="./public/BSlogo.png" alt="logo" id="navbarLogo" />
             </a>
 
             <NavLinks />
