@@ -326,6 +326,15 @@ footer .social-link {
   font-size: 2rem;
 }
 
+/* gallery */
+
+#gallery {
+  height: 16rem;
+}
+.image {
+  height: 16rem;
+}
+
 /* media quarrys */
 @media screen and (max-width: 800px) {
   /* page mobile */

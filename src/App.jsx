@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import MainPage from './components/MainPage';
 import Shop from './components/Shop';
+import Gallery from './components/Gallery';
 
 import Footer from './components/Footer';
 // useEffect(() => {
@@ -51,7 +52,9 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="/Shop" element={<Shop />} />
         </Routes>
-
+        <div id="gallery">
+          <Gallery />
+        </div>
         <footer>
           <Footer />
         </footer>
