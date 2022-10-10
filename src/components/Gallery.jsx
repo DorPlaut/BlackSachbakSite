@@ -40,8 +40,8 @@ function Gallery() {
         responsive={responsive}
         id="gallery"
         infinite={true}
-        // autoPlay={true}
-        autoPlaySpeed={1000}
+        autoPlay={true}
+        autoPlaySpeed={1500}
         centerMode={true}
       >
         {images.map((index) => {
