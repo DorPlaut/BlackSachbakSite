@@ -21,7 +21,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-snap-type: y mandatory;
+  /* scroll-snap-type: y mandatory; */
   scroll-behavior: smooth;
 }
 body {
@@ -47,6 +47,19 @@ ul {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--fadedBlackDark);
+}
+.btn {
+  background: var(--primaryColor);
+  width: 10rem;
+  border: none;
+  padding: 0.7rem;
+  margin: 0.4rem;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.btn:hover {
+  background: var(--primaryColor2);
+  color: var(--white);
 }
 /* Page */
 .page {
@@ -439,4 +452,96 @@ footer .social-link {
   100% {
     background-position-y: -0.9rem;
   }
+}
+
+/* SHOP */
+.shop-page {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3.5rem;
+}
+.products-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.product {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 1.5rem;
+  padding: 1rem;
+  width: fit-content;
+}
+.product-img {
+  height: 20rem;
+  margin: 1rem;
+}
+
+/* selected product page */
+.selected-product {
+  z-index: 1;
+  position: fixed;
+  top: calc(50% - 25rem);
+  right: calc(50% - 25rem);
+  background: var(--white);
+  width: calc(100vw - 3rem);
+  max-width: 50rem;
+  text-align: center;
+  box-shadow: 0 0 0 100rem rgba(0, 0, 0, 0.5);
+  color: var(--black);
+}
+.selected-product h2 {
+  margin: -2.5rem 0 1rem 0;
+}
+
+.selected-product-img {
+  width: 24rem;
+}
+.selected-product p {
+  margin: 0.2rem 3rem;
+}
+.return-to-shop-btn-container {
+  text-align: right;
+  margin: 0.5rem;
+}
+.product-xbtn {
+  font-size: 2.3rem;
+  color: var(--primaryColor2);
+  border: none;
+  transition: 0.3s;
+}
+.product-xbtn:hover {
+  color: var(--primaryColor);
+}
+.chose-specific {
+  display: flex;
+  justify-content: center;
+}
+.product-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--primaryColor2);
+  width: 80%;
+  margin: 1rem;
+  padding: 1rem;
+  color: var(--white);
+}
+.options {
+  display: flex;
+  justify-content: space-between;
+}
+.option {
+  width: 7rem;
+  margin: 0.2rem;
+}
+.option input {
+  text-align: center;
+  width: 3rem;
+}
+.option select {
+  width: 7rem;
 }

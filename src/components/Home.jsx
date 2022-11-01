@@ -1,6 +1,7 @@
 import React from 'react';
 import NavLinks from './NavLinks';
 import SocialLinks from './SocialLinks';
+import UserBox from './UserBox';
 
 function Home({ isMobile }) {
   return (
@@ -11,6 +12,7 @@ function Home({ isMobile }) {
         </div>
         <div className="homeLogoContainer">
           <img src="./BSlogo.png" alt="logo" id="HomePageLogo" />
+          <UserBox />
         </div>
         <div id="homeNav">
           <NavLinks isMobile={isMobile} />

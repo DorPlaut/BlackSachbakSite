@@ -4,14 +4,14 @@ import 'react-multi-carousel/lib/styles.css';
 
 function Gallery() {
   const images = [
-    'https://scontent.fsdv1-2.fna.fbcdn.net/v/t39.30808-6/299798944_457375519733761_815928325762960498_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=730e14&_nc_ohc=-mtcZM4bt4EAX8OS3ig&_nc_oc=AQm3QswjjLfqqFlebgG33NaUZzS3UvizmU-MWc-y0x03qNHiQsCTtavkB7_lE2p7SA0&_nc_ht=scontent.fsdv1-2.fna&oh=00_AT9YN4UOqpHZ49EyDVIxqCp5b7qRrvct0_8FCG6846f9iw&oe=6345657D',
-    'https://scontent.fsdv1-2.fna.fbcdn.net/v/t39.30808-6/246919636_260363186101663_1850354332696656179_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=p5p15dso5RAAX9TP6CQ&tn=iTO9AVJQLHhXHTGk&_nc_ht=scontent.fsdv1-2.fna&oh=00_AT_4f21KmbjsPlD_veR4U1ddG3nFbl3QwwtVGRdglih_KQ&oe=63462347',
-    'https://scontent.fsdv1-2.fna.fbcdn.net/v/t39.30808-6/243566552_245561124248536_2625684309586134289_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=730e14&_nc_ohc=w0EHsOy-qpAAX8Sn7dh&_nc_ht=scontent.fsdv1-2.fna&oh=00_AT9lVgdnT0iA6emz3dDXM2ZFCWsF4TbPIBY3hYNRvoceYg&oe=6345C67D',
-    'https://scontent.fsdv1-2.fna.fbcdn.net/v/t39.30808-6/241074852_224392546365394_8226114128045815514_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=730e14&_nc_ohc=Fn-ApEHhBYwAX_ordMv&_nc_ht=scontent.fsdv1-2.fna&oh=00_AT82VLLiD2jZxdgpc7rNvPxuuNKxcemLTDTcSJCF8ouhog&oe=6345C4F5',
-    'https://scontent.fsdv1-2.fna.fbcdn.net/v/t39.30808-6/299798944_457375519733761_815928325762960498_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=730e14&_nc_ohc=-mtcZM4bt4EAX8OS3ig&_nc_oc=AQm3QswjjLfqqFlebgG33NaUZzS3UvizmU-MWc-y0x03qNHiQsCTtavkB7_lE2p7SA0&_nc_ht=scontent.fsdv1-2.fna&oh=00_AT9YN4UOqpHZ49EyDVIxqCp5b7qRrvct0_8FCG6846f9iw&oe=6345657D',
-    'https://scontent.fsdv1-2.fna.fbcdn.net/v/t39.30808-6/246919636_260363186101663_1850354332696656179_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=p5p15dso5RAAX9TP6CQ&tn=iTO9AVJQLHhXHTGk&_nc_ht=scontent.fsdv1-2.fna&oh=00_AT_4f21KmbjsPlD_veR4U1ddG3nFbl3QwwtVGRdglih_KQ&oe=63462347',
-    'https://scontent.fsdv1-2.fna.fbcdn.net/v/t39.30808-6/243566552_245561124248536_2625684309586134289_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=730e14&_nc_ohc=w0EHsOy-qpAAX8Sn7dh&_nc_ht=scontent.fsdv1-2.fna&oh=00_AT9lVgdnT0iA6emz3dDXM2ZFCWsF4TbPIBY3hYNRvoceYg&oe=6345C67D',
-    'https://scontent.fsdv1-2.fna.fbcdn.net/v/t39.30808-6/241074852_224392546365394_8226114128045815514_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=730e14&_nc_ohc=Fn-ApEHhBYwAX_ordMv&_nc_ht=scontent.fsdv1-2.fna&oh=00_AT82VLLiD2jZxdgpc7rNvPxuuNKxcemLTDTcSJCF8ouhog&oe=6345C4F5',
+    'https://lh4.googleusercontent.com/GckuwnK5H1mv-kS2VvtejKZBBCE2qxB4cpLB7_gdRJr_boLlXo93yCVInijbK88RgLQ=w2400',
+    'https://lh5.googleusercontent.com/O4esSnGXv29ax_2xosHo7XXaV2JDmC7YyW4os_21RxEMWdzWWwvXMrrfxtUZhPa478M=w2400',
+    'https://lh3.googleusercontent.com/UClXTMCyXQolR7Jd6Mi2hPNWh8RaKTIu2ULwgQh2UrG5QmWZxQX_ZAM7M2RPT9gfbbg=w2400',
+    'https://lh5.googleusercontent.com/8rjqVYXDAR7hAr3BpwpeRzX2d66IyTZAxJHkDKRjTVae4V7dHSKJK9QagBfbua8kpCY=w2400',
+    'https://lh5.googleusercontent.com/17p8ePNvnLcTCX2Kiq65rKPFWafI7fjij8e0Xmz8Ds3aPHPYZcalkpk1ZbW0bZHrAjs=w2400',
+    'https://lh4.googleusercontent.com/pLr-pxF3WQ1Eizrx9waUfwn2EvEhMh109u2DS0pRiVCSU1oc6sCauh1qQYj4wAUCgwo=w2400',
+    'https://lh6.googleusercontent.com/Iq0iSh2FvJjQJEw2FcSpRM83kxl24_aMtB3hdwoik0-XmF47CkNrx9z92Vp4TlnMibE=w2400',
+    'https://lh5.googleusercontent.com/YNIEaLnkvSFVPIgc2JFljGf44Yx36dCLwqW6P6zWODPpYgaHEJmjV_1IQzIj_hyAMKo=w2400',
   ];
 
   const responsive = {
@@ -41,11 +41,10 @@ function Gallery() {
         id="gallery"
         infinite={true}
         autoPlay={true}
-        autoPlaySpeed={1500}
+        autoPlaySpeed={5000}
         centerMode={true}
       >
         {images.map((index) => {
-          console.log(index);
           return (
             <div key={index}>
               <img src={index} alt="photo" className="image" />

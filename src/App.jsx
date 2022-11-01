@@ -7,6 +7,7 @@ import Home from './components/Home';
 import MainPage from './components/MainPage';
 import Shop from './components/Shop';
 import Gallery from './components/Gallery';
+import ShopPage from './components/Shop/ShopPage';
 
 import Footer from './components/Footer';
 // useEffect(() => {
@@ -50,7 +51,7 @@ function App() {
         </section>
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/Shop" element={<Shop />} />
+          <Route path="/Shop" element={<ShopPage />} />
         </Routes>
         <div id="gallery">
           <Gallery />
