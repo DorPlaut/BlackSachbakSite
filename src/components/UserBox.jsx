@@ -1,46 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 
-function UserBox() {
+import Login from '../components/UserSystem/Login';
+import Profile from '../components/UserSystem/Profile';
+
+function UserBox({ isMobile }) {
+  const { user, isAuthenticated, isLoading } = useAuth0();
+
   // fetch Auth
-  const [user, setUser] = useState('');
-  const baseURL = 'http://localhost:3000/api/V1/auth';
-  const loginURL = baseURL + '/login';
-  const logoutURL = baseURL + '/logout';
-  const fetchUserAuth = async () => {
-    try {
-      axios.get(baseURL).then((response) => {
-        setUser(response);
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  // const login = async () => {
-  //   try {
-  //     axios.get(loginURL).then((response) => {
-  //       setUser(response.data);
-  //       console.log(user);
-  //     });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
-  useEffect(() => {
-    fetchUserAuth();
-  }, []);
-
-  // console.log(user);
   return (
-    <div>
-      <h1>hello guest</h1>
-      <h3>
-        <a href="http://localhost:3000/api/V1/auth/login">login/signup</a>
-      </h3>
-    </div>
+    <>
+      <div className="user-box">
+        {isAuthenticated ? (
+          <div>
+            <Profile isMobile={isMobile} />
+          </div>
+        ) : (
+          <Login />
+        )}
+      </div>
+    </>
   );
 }
 

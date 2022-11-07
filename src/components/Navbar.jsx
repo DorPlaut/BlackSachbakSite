@@ -3,6 +3,7 @@ import NavLinks from './NavLinks';
 import SocialLinks from './SocialLinks';
 import { BsFillArrowUpCircleFill } from 'react-icons/bs';
 import { CgMenuRound, CgCloseO } from 'react-icons/cg';
+import UserBox from './UserBox';
 
 function Navbar({ isMobile }) {
   // minimize function for mobile
@@ -26,27 +27,30 @@ function Navbar({ isMobile }) {
       )}
 
       {isMobile ? (
-        <div
-          className={
-            isMinimize
-              ? 'nav-container nav-container-minimize'
-              : 'nav-container'
-          }
-        >
-          <nav className="nav">
-            <div id="logo-nav-container">
-              <img
-                src="https://raw.githubusercontent.com/DorPlaut/BlackSachbakSite/main/public/BSlogo.png"
-                alt="logo"
-                id="navbarLogo"
-              />
-
-              <NavLinks isMobile={isMobile} />
-            </div>
-            <div id="social-nav-container">
-              <SocialLinks />
-            </div>
-          </nav>
+        <div className="nav-container">
+          {isMinimize ? (
+            ''
+          ) : (
+            <nav className="nav">
+              <div id="logo-nav-container">
+                <img
+                  src="https://raw.githubusercontent.com/DorPlaut/BlackSachbakSite/main/public/BSlogo.png"
+                  alt="logo"
+                  className="navbar-logo-mobile"
+                />
+                <div className="user-box-page-mobile">
+                  <UserBox />
+                </div>
+                <br />
+                <div className="navlinks-mobile">
+                  <NavLinks isMobile={isMobile} />
+                </div>
+              </div>
+              <div id="social-nav-container">
+                <SocialLinks />
+              </div>
+            </nav>
+          )}
         </div>
       ) : (
         <nav className="nav">
@@ -55,14 +59,17 @@ function Navbar({ isMobile }) {
               <img
                 src="https://raw.githubusercontent.com/DorPlaut/BlackSachbakSite/main/public/BSlogo.png"
                 alt="logo"
-                id="navbarLogo"
+                className="navbar-logo"
               />
             </a>
 
             <NavLinks />
           </div>
           <div id="social-nav-container">
-            <SocialLinks />
+            <div className="user-box-page">
+              <UserBox />
+            </div>
+            {/* <SocialLinks /> */}
           </div>
         </nav>
       )}

@@ -1,15 +1,11 @@
 import React from 'react';
+import Products from './Shop/Products';
 
 function Shop() {
   return (
     <>
-      <section className="section" id="shopPage">
-        <div className="page">
-          <div className="article">
-            <h1>Shop</h1>
-            <h3>Not avilable at the moment...</h3>
-          </div>
-        </div>
+      <section className="shop-page" id="shopPage">
+        <Products />
       </section>
     </>
   );

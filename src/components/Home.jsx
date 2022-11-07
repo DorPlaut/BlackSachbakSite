@@ -10,9 +10,11 @@ function Home({ isMobile }) {
         <div id="social-links-home">
           <SocialLinks />
         </div>
+        <div className="user-box-home">
+          <UserBox isMobile={isMobile} />
+        </div>
         <div className="homeLogoContainer">
           <img src="./BSlogo.png" alt="logo" id="HomePageLogo" />
-          <UserBox />
         </div>
         <div id="homeNav">
           <NavLinks isMobile={isMobile} />

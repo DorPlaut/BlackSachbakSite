@@ -1,14 +1,13 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import { Routes, Route, Link } from 'react-router-dom';
+
 // components
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import MainPage from './components/MainPage';
 import Shop from './components/Shop';
 import Gallery from './components/Gallery';
-import ShopPage from './components/Shop/ShopPage';
-
 import Footer from './components/Footer';
 // useEffect(() => {
 //   isNavbarVisible();
@@ -51,7 +50,8 @@ function App() {
         </section>
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/Shop" element={<ShopPage />} />
+          <Route path="/Shop" element={<Shop />} />
+          <Route path="/authorized" element={<Shop />} />
         </Routes>
         <div id="gallery">
           <Gallery />

@@ -2,19 +2,20 @@ import React, { useState, useEffect } from 'react';
 import Product from './Product';
 import SelectedProduct from './SelectedProduct';
 import axios from 'axios';
+import { GridLoader } from 'react-spinners';
 
-function ShopPage() {
+function Products() {
   const [isLoading, setIsLoading] = useState(true);
-  const [products, setProducts] = useState(null);
+  const [products, setProducts] = useState('');
   const [selectedProduct, setSelectedProduct] = useState(
     'VS The Future T-shirt FULL PRINT'
   );
   const [isSelected, setIsSelected] = useState(false);
   // GET PRODUCTS
-  const baseURL = 'http://localhost:3000/shop';
+  const baseURL = 'http://localhost:6060/api/v1/products';
   const fetchProductsData = async () => {
     try {
-      axios.get(baseURL).then((response) => {
+      await axios.get(baseURL).then((response) => {
         setProducts(response.data);
         setIsLoading(false);
       });
@@ -35,10 +36,10 @@ function ShopPage() {
   // GET SKU
 
   return (
-    <section className="shop-page" id="shopPage">
+    <>
       {isLoading ? (
         <div className="loading-container">
-          <h1>loading!</h1>
+          <GridLoader size={80} />
         </div>
       ) : (
         <div className="products-container">
@@ -56,16 +57,21 @@ function ShopPage() {
               />
             );
           })}
-          <SelectedProduct
-            products={products}
-            selectedProduct={selectedProduct}
-            isSelected={isSelected}
-            setIsSelected={setIsSelected}
-          />
+          {isSelected ? (
+            <div className="selected-product-container">
+              <SelectedProduct
+                products={products}
+                selectedProduct={selectedProduct}
+                setIsSelected={setIsSelected}
+              />
+            </div>
+          ) : (
+            ''
+          )}
         </div>
       )}
-    </section>
+    </>
   );
 }
 
-export default ShopPage;
+export default Products;

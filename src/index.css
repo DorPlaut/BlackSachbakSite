@@ -29,8 +29,8 @@ input[type='number'] {
     font-size: 11px;
   }
 }
-@media screen and (min-width: 2800px) {
+@media screen and (min-width: 2600px) {
   :root {
-    font-size: 28px;
+    font-size: 24px;
   }
 }

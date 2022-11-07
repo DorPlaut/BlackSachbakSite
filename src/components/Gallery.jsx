@@ -43,11 +43,17 @@ function Gallery() {
         autoPlay={true}
         autoPlaySpeed={5000}
         centerMode={true}
+        focusOnSelect={true}
       >
         {images.map((index) => {
           return (
             <div key={index}>
-              <img src={index} alt="photo" className="image" />
+              <img
+                src={index}
+                alt="photo"
+                className="image"
+                referrerPolicy="no-referrer"
+              />
             </div>
           );
         })}
