@@ -6,6 +6,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { useEffect } from 'react';
 
 function CartProduct({ item, isCartUpdated, setIsCartUpdated }) {
+  const url = import.meta.env.VITE_SERVER_URL;
   const [quantity, setQuantity] = useState(item.quantity);
   const { user, getAccessTokenSilently } = useAuth0();
   let price = item.price.toString().split('');
@@ -15,7 +16,7 @@ function CartProduct({ item, isCartUpdated, setIsCartUpdated }) {
     try {
       const token = await getAccessTokenSilently();
       await axios.put(
-        `http://localhost:6060/api/v1/cart/delete?id=${user.sub}`,
+        `${url}/api/v1/cart/delete?id=${user.sub}`,
         { sku: item.sku },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -30,7 +31,7 @@ function CartProduct({ item, isCartUpdated, setIsCartUpdated }) {
     try {
       const token = await getAccessTokenSilently();
       await axios.put(
-        `http://localhost:6060/api/v1/cart/update?id=${user.sub}`,
+        `${url}/api/v1/cart/update?id=${user.sub}`,
         { sku: item.sku, quantity: value },
         {
           headers: { Authorization: `Bearer ${token}` },

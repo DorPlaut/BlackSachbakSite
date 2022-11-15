@@ -12,6 +12,8 @@ function SelectedProduct({
   setIsCartUpdated,
   isCartUpdated,
 }) {
+  const url = import.meta.env.VITE_SERVER_URL;
+
   // User info
   const { user, getAccessTokenSilently, isAuthenticated } = useAuth0();
 
@@ -136,7 +138,7 @@ function SelectedProduct({
     try {
       const token = await getAccessTokenSilently();
       axios.post(
-        'http://localhost:6060/api/v1/cart',
+        `${url}/api/v1/cart`,
         {
           userId: user.sub,
           title: selectedProduct,

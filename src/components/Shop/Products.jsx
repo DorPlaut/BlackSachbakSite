@@ -5,6 +5,8 @@ import axios from 'axios';
 import { GridLoader } from 'react-spinners';
 
 function Products({ setIsCartUpdated, isCartUpdated }) {
+  const url = import.meta.env.VITE_SERVER_URL;
+
   const [isLoading, setIsLoading] = useState(true);
   const [products, setProducts] = useState('');
   const [selectedProduct, setSelectedProduct] = useState(
@@ -12,7 +14,7 @@ function Products({ setIsCartUpdated, isCartUpdated }) {
   );
   const [isSelected, setIsSelected] = useState(false);
   // GET PRODUCTS
-  const baseURL = 'http://localhost:6060/api/v1/products';
+  const baseURL = `${url}/api/v1/products`;
   const fetchProductsData = async () => {
     try {
       await axios.get(baseURL).then((response) => {

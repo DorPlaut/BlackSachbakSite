@@ -10,6 +10,8 @@ import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 import Cart from './Cart';
 
 function Chackout({ setIsCartUpdated, isCartUpdated }) {
+  const url = import.meta.env.VITE_SERVER_URL;
+
   const [firstName, setFirstName] = useState('First name');
   const [lastName, setLastName] = useState('Last name');
   const [email, setEmail] = useState('Email');
@@ -35,7 +37,7 @@ function Chackout({ setIsCartUpdated, isCartUpdated }) {
     try {
       const token = await getAccessTokenSilently();
       await axios
-        .get(`http://localhost:6060/api/v1/cart?id=${user.sub}`, {
+        .get(`${url}/api/v1/cart?id=${user.sub}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {
@@ -65,7 +67,7 @@ function Chackout({ setIsCartUpdated, isCartUpdated }) {
       const token = await getAccessTokenSilently();
       await axios
         .post(
-          'http://localhost:6060/api/v1/orders/shipping',
+          `${url}/api/v1/orders/shipping`,
           {
             userId: user.sub,
             address_to: {

@@ -6,6 +6,8 @@ import { GridLoader } from 'react-spinners';
 import { HashLink } from 'react-router-hash-link';
 
 function Cart({ setIsCartUpdated, isCartUpdated, isCheckingOut }) {
+  const url = import.meta.env.VITE_SERVER_URL;
+
   const { user, getAccessTokenSilently } = useAuth0();
   const [isLoading, setIsLoading] = useState(true);
   const [userCart, setUserCart] = useState('');
@@ -16,7 +18,7 @@ function Cart({ setIsCartUpdated, isCartUpdated, isCheckingOut }) {
     try {
       const token = await getAccessTokenSilently();
       await axios
-        .get(`http://localhost:6060/api/v1/cart?id=${user.sub}`, {
+        .get(`${url}/api/v1/cart?id=${user.sub}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {
