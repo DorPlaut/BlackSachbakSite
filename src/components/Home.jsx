@@ -3,7 +3,7 @@ import NavLinks from './NavLinks';
 import SocialLinks from './SocialLinks';
 import UserBox from './UserBox';
 
-function Home({ isMobile }) {
+function Home({ isMobile, setIsCartUpdated, isCartUpdated }) {
   return (
     <>
       <div id="home">
@@ -11,10 +11,14 @@ function Home({ isMobile }) {
           <SocialLinks />
         </div>
         <div className="user-box-home">
-          <UserBox isMobile={isMobile} />
+          <UserBox
+            isMobile={isMobile}
+            setIsCartUpdated={setIsCartUpdated}
+            isCartUpdated={isCartUpdated}
+          />
         </div>
-        <div className="homeLogoContainer">
-          <img src="./BSlogo.png" alt="logo" id="HomePageLogo" />
+        <div className="home-logo-container">
+          <img src="./BSlogo.png" alt="logo" id="Home-page-logo" />
         </div>
         <div id="homeNav">
           <NavLinks isMobile={isMobile} />

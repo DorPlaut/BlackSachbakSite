@@ -21,7 +21,7 @@ function ProductGallery({ images }) {
       {images.map((index) => {
         return (
           <div key={index}>
-            <img src={index} alt="photo" className="selected-product-img" />
+            <img src={index.img} alt="photo" className="selected-product-img" />
           </div>
         );
       })}

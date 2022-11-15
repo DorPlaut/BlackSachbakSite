@@ -5,20 +5,43 @@ import { useAuth0 } from '@auth0/auth0-react';
 import Login from '../components/UserSystem/Login';
 import Profile from '../components/UserSystem/Profile';
 
-function UserBox({ isMobile }) {
-  const { user, isAuthenticated, isLoading } = useAuth0();
+function UserBox({ isMobile, setIsCartUpdated, isCartUpdated }) {
+  const { user, isAuthenticated, isLoading, handleRedirectCallback } =
+    useAuth0();
+
+  useEffect(() => {
+    if (!isAuthenticated && !isLoading) {
+      handleRedirectCallback()
+        .then((res) => {
+          console.log('logd in successfully');
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  });
 
   // fetch Auth
 
   return (
     <>
       <div className="user-box">
-        {isAuthenticated ? (
-          <div>
-            <Profile isMobile={isMobile} />
-          </div>
+        {isLoading ? (
+          'Loading...'
         ) : (
-          <Login />
+          <>
+            {isAuthenticated ? (
+              <div>
+                <Profile
+                  isMobile={isMobile}
+                  setIsCartUpdated={setIsCartUpdated}
+                  isCartUpdated={isCartUpdated}
+                />
+              </div>
+            ) : (
+              <Login />
+            )}
+          </>
         )}
       </div>
     </>

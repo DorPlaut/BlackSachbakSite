@@ -13,7 +13,7 @@ function NavLinks({ isMobile }) {
             setIsShop(false);
           }}
           className="nav-link"
-          to="#homePage"
+          to="/#homePage"
         >
           Home
         </HashLink>

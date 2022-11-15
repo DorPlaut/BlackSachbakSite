@@ -4,7 +4,7 @@ function Product({ title, desc, price, images, handleClickOnProduct }) {
   return (
     <div className="product article">
       <img
-        src={images[0]}
+        src={images[0].img}
         alt="product"
         className="product-img"
         onClick={() => {

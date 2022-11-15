@@ -5,7 +5,7 @@ import { BsFillArrowUpCircleFill } from 'react-icons/bs';
 import { CgMenuRound, CgCloseO } from 'react-icons/cg';
 import UserBox from './UserBox';
 
-function Navbar({ isMobile }) {
+function Navbar({ isMobile, setIsCartUpdated, isCartUpdated }) {
   // minimize function for mobile
   const [isMinimize, setIsMinimize] = useState(true);
 
@@ -39,7 +39,10 @@ function Navbar({ isMobile }) {
                   className="navbar-logo-mobile"
                 />
                 <div className="user-box-page-mobile">
-                  <UserBox />
+                  <UserBox
+                    setIsCartUpdated={setIsCartUpdated}
+                    isCartUpdated={isCartUpdated}
+                  />
                 </div>
                 <br />
                 <div className="navlinks-mobile">
@@ -67,7 +70,10 @@ function Navbar({ isMobile }) {
           </div>
           <div id="social-nav-container">
             <div className="user-box-page">
-              <UserBox />
+              <UserBox
+                setIsCartUpdated={setIsCartUpdated}
+                isCartUpdated={isCartUpdated}
+              />
             </div>
             {/* <SocialLinks /> */}
           </div>

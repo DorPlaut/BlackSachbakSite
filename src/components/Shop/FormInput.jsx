@@ -2,7 +2,7 @@ import React from 'react';
 
 function FormInput({ optionsArr, options, setOptions, num }) {
   return (
-    <div className="select-color option">
+    <div className="option">
       <h4>{optionsArr[num].title}</h4>
       <select
         name={optionsArr[num].title}

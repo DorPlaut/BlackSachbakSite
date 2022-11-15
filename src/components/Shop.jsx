@@ -1,11 +1,14 @@
 import React from 'react';
 import Products from './Shop/Products';
 
-function Shop() {
+function Shop({ setIsCartUpdated, isCartUpdated }) {
   return (
     <>
       <section className="shop-page" id="shopPage">
-        <Products />
+        <Products
+          setIsCartUpdated={setIsCartUpdated}
+          isCartUpdated={isCartUpdated}
+        />
       </section>
     </>
   );

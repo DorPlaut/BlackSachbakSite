@@ -9,9 +9,7 @@ import MainPage from './components/MainPage';
 import Shop from './components/Shop';
 import Gallery from './components/Gallery';
 import Footer from './components/Footer';
-// useEffect(() => {
-//   isNavbarVisible();
-// }, []);
+import Chackout from './components/Shop/Chackout';
 
 function App() {
   // navbar visability
@@ -40,18 +38,48 @@ function App() {
     checkIfMobile();
   });
   // end of mobile feauters
+  // get cart to updated at any action related
+  const [isCartUpdated, setIsCartUpdated] = useState(false);
 
   return (
     <>
       <div className="section-container">
-        {isVisible ? <Navbar isMobile={isMobile} /> : ''}
+        {isVisible ? (
+          <Navbar
+            isMobile={isMobile}
+            setIsCartUpdated={setIsCartUpdated}
+            isCartUpdated={isCartUpdated}
+          />
+        ) : (
+          ''
+        )}
         <section className="section" id="homePage">
-          <Home isMobile={isMobile} />
+          <Home
+            isMobile={isMobile}
+            setIsCartUpdated={setIsCartUpdated}
+            isCartUpdated={isCartUpdated}
+          />
         </section>
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/Shop" element={<Shop />} />
-          <Route path="/authorized" element={<Shop />} />
+          <Route
+            path="/Shop"
+            element={
+              <Shop
+                setIsCartUpdated={setIsCartUpdated}
+                isCartUpdated={isCartUpdated}
+              />
+            }
+          />
+          <Route
+            path="/chackout"
+            element={
+              <Chackout
+                setIsCartUpdated={setIsCartUpdated}
+                isCartUpdated={isCartUpdated}
+              />
+            }
+          />
         </Routes>
         <div id="gallery">
           <Gallery />

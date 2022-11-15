@@ -5,42 +5,50 @@ import ProductGallery from './ProductGallery';
 import FormInput from './FormInput';
 import { useAuth0 } from '@auth0/auth0-react';
 
-function SelectedProduct({ products, selectedProduct, setIsSelected }) {
+function SelectedProduct({
+  products,
+  selectedProduct,
+  setIsSelected,
+  setIsCartUpdated,
+  isCartUpdated,
+}) {
   // User info
-  const { user, getAccessTokenSilently } = useAuth0();
+  const { user, getAccessTokenSilently, isAuthenticated } = useAuth0();
 
   // SELECTED PRODUCT data
   const filterdProduct = products.filter((i) => {
     return selectedProduct.indexOf(i.title) > -1;
   });
   const productDetails = filterdProduct[0];
-  // specific values
-  const { images, options, variants, fullOptions } = productDetails;
+  // specific values for displayd product
+  const { images, options, variants, optionTypes, description } =
+    productDetails;
   let price = productDetails.variants[0].price.toString().split('');
   price.splice(-2, 0, '.').toString();
-  // set seldeted product for cart
+  const [isAvilable, setIsAvilable] = useState(true);
+  // set selected product ready for cart
   const [options1, setOptions1] = useState();
   const [options2, setOptions2] = useState();
   const [options3, setOptions3] = useState();
   let optionsArr;
   const getOptions = () => {
-    let option1 = options[0];
-    let option2 = options[1];
-    let option3 = options[2];
+    let option1 = optionTypes[0];
+    let option2 = optionTypes[1];
+    let option3 = optionTypes[2];
     let option1Arr;
     let option2Arr;
     let option3Arr;
     if (option1 && !option2 && !option3) {
-      option1Arr = fullOptions[0].values.map((i) => {
+      option1Arr = options[0].values.map((i) => {
         return i.title;
       });
       optionsArr = [{ title: option1, options: option1Arr }];
     }
     if (option1 && option2 && !option3) {
-      option1Arr = fullOptions[0].values.map((i) => {
+      option1Arr = options[0].values.map((i) => {
         return i.title;
       });
-      option2Arr = fullOptions[1].values.map((i) => {
+      option2Arr = options[1].values.map((i) => {
         return i.title;
       });
       optionsArr = [
@@ -49,13 +57,13 @@ function SelectedProduct({ products, selectedProduct, setIsSelected }) {
       ];
     }
     if (option1 && option2 && option3) {
-      option1Arr = fullOptions[0].values.map((i) => {
+      option1Arr = options[0].values.map((i) => {
         return i.title;
       });
-      option2Arr = fullOptions[1].values.map((i) => {
+      option2Arr = options[1].values.map((i) => {
         return i.title;
       });
-      option3Arr = fullOptions[2].values.map((i) => {
+      option3Arr = options[2].values.map((i) => {
         return i.title;
       });
       optionsArr = [
@@ -68,12 +76,7 @@ function SelectedProduct({ products, selectedProduct, setIsSelected }) {
   getOptions();
 
   // get specific choosen product with sku
-  const [UserID, setUserID] = useState('ID');
-  const [product, setProduct] = useState('ID');
   const [quantity, setQuantity] = useState(1);
-  // const [color, setColor] = useState('');
-  // const [size, setSize] = useState('');
-
   let specificVariant;
   const updatedSelectedVariant = () => {
     specificVariant = [options1, options2, options3]
@@ -82,35 +85,53 @@ function SelectedProduct({ products, selectedProduct, setIsSelected }) {
       })
       .join(' / ');
   };
-
+  let variant;
   let sku;
   const getSKU = () => {
-    const variant = variants.filter((i) => {
+    variant = variants.filter((i) => {
       return specificVariant.indexOf(i.title) > -1;
     });
     sku = variant[0].sku;
   };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    updatedSelectedVariant();
-    getSKU();
-
-    setOptions1('');
-    setOptions2('');
-    setOptions3('');
-
-    postForm();
+  let updatedPrice;
+  const getPrice = () => {
+    variant = variants.filter((i) => {
+      return specificVariant.indexOf(i.title) > -1;
+    });
+    updatedPrice = variant[0].price;
   };
 
   // Reset all parameters when selecting different product
   useEffect(() => {
     getOptions();
+    setOptions1('');
+    setOptions2('');
+    setOptions3('');
     setQuantity(1);
+    setIsCartUpdated(!isCartUpdated);
   }, [selectedProduct]);
 
-  // Add to cart
+  // Handle form submit - add product to cart
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (isAuthenticated) {
+      updatedSelectedVariant();
+      getSKU();
+      getPrice();
+      if (variant[0].is_available) {
+        setOptions1('');
+        setOptions2('');
+        setOptions3('');
+        setIsAvilable(true);
+        postForm();
+      } else if (!variant[0].is_available) {
+        setIsAvilable(false);
+      }
+    }
+    animate();
+  };
 
+  // send the cart to Data Base
   const postForm = async () => {
     try {
       const token = await getAccessTokenSilently();
@@ -121,6 +142,8 @@ function SelectedProduct({ products, selectedProduct, setIsSelected }) {
           title: selectedProduct,
           colorAndSize: specificVariant,
           sku: sku,
+          price: updatedPrice,
+          image: images[0].img,
           quantity: quantity,
         },
         {
@@ -132,6 +155,16 @@ function SelectedProduct({ products, selectedProduct, setIsSelected }) {
     } catch (err) {
       console.log(err);
     }
+  };
+
+  // Submit animation
+  const [isAnimate, setIsAnimate] = useState(false);
+  const animate = () => {
+    setIsAnimate(true);
+    setTimeout(() => {
+      setIsAnimate(false);
+      setIsCartUpdated(!isCartUpdated);
+    }, 2000);
   };
 
   return (
@@ -149,14 +182,14 @@ function SelectedProduct({ products, selectedProduct, setIsSelected }) {
         <div className="product-carusel-container">
           <ProductGallery images={images} />
         </div>
-        <p dangerouslySetInnerHTML={{ __html: productDetails.desc }}></p>
+        <p dangerouslySetInnerHTML={{ __html: description }}></p>
         <h3>{price}$</h3>
         <div className="chose-specific">
           {/* form */}
           <form
             action=""
             method="post"
-            className="product-form"
+            className={isAnimate ? 'product-form form-animate' : 'product-form'}
             onSubmit={handleSubmit}
           >
             <FormInput
@@ -204,6 +237,28 @@ function SelectedProduct({ products, selectedProduct, setIsSelected }) {
             </button>
           </form>
         </div>
+        <dt>
+          The prices shown may differ from the final price on your cart
+          depending on the size and variant
+        </dt>
+        {isAnimate && isAuthenticated && isAvilable ? (
+          <p className="alert-success">Item added to cart successfully</p>
+        ) : (
+          ''
+        )}
+        {isAnimate && isAuthenticated && !isAvilable ? (
+          <p className="alert-danger">
+            Sorry, We're out of stock at the moment. please select different
+            color/size
+          </p>
+        ) : (
+          ''
+        )}
+        {isAnimate && !isAuthenticated ? (
+          <p className="alert-danger">Please log in to use the shop</p>
+        ) : (
+          ''
+        )}
         <br />
       </div>
     </div>

@@ -4,7 +4,7 @@ import SelectedProduct from './SelectedProduct';
 import axios from 'axios';
 import { GridLoader } from 'react-spinners';
 
-function Products() {
+function Products({ setIsCartUpdated, isCartUpdated }) {
   const [isLoading, setIsLoading] = useState(true);
   const [products, setProducts] = useState('');
   const [selectedProduct, setSelectedProduct] = useState(
@@ -63,6 +63,8 @@ function Products() {
                 products={products}
                 selectedProduct={selectedProduct}
                 setIsSelected={setIsSelected}
+                setIsCartUpdated={setIsCartUpdated}
+                isCartUpdated={isCartUpdated}
               />
             </div>
           ) : (
