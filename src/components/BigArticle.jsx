@@ -7,6 +7,11 @@ function BigArticle() {
         <h3 className="article-heading">Tours</h3>
         <div className="underline"></div>
         <br />
+        <img
+          className="article-poster"
+          src="./blackSachbakPoster1.jpg"
+          alt=""
+        />
       </article>
     </>
   );

@@ -6,15 +6,15 @@ function MiniArticle() {
       <article className="mini-article article">
         <h3 className="article-heading">Article</h3>
         <div className="underline"></div>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque
-          perspiciatis eaque in deleniti laboriosam excepturi assumenda
-          voluptate adipisci totam illo. Cupiditate temporibus, iste dignissimos
-          blanditiis laudantium placeat reprehenderit officiis obcaecati alias
-          ipsa provident nihil expedita voluptatem dolores eveniet odio,
-          suscipit, aliquam hic nostrum ad? Cumque natus ullam nesciunt sit
-          esse.
-        </p>
+        <iframe
+          className="player"
+          src="https://bandcamp.com/EmbeddedPlayer/album=2786052922/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/"
+          seamless
+        >
+          <a href="https://blacksachbak.bandcamp.com/album/black-sachbak-vs-the-future">
+            Black Sachbak vs. The Future by Black Sachbak
+          </a>
+        </iframe>
       </article>
     </>
   );
