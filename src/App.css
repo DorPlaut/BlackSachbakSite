@@ -531,6 +531,8 @@ footer .social-link {
 
 /* selected product page */
 .selected-product-container {
+  pointer-events: none;
+  z-index: 0;
   position: fixed;
   background: var(--fadedBlack);
   top: 0;
@@ -542,6 +544,8 @@ footer .social-link {
   justify-content: center;
 }
 .selected-product {
+  pointer-events: all;
+
   z-index: 10;
   padding: 0.1rem;
   background: var(--white);
@@ -626,10 +630,6 @@ footer .social-link {
     grid-template-columns: auto;
   }
   .selected-product {
-    position: fixed;
-    top: 0rem;
-    right: 2.5rem;
-    background: var(--white);
     width: calc(100vw - 5rem);
     max-width: 50rem;
   }

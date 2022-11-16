@@ -77,6 +77,8 @@ function Navbar({ isMobile, setIsCartUpdated, isCartUpdated }) {
               <UserBox
                 setIsCartUpdated={setIsCartUpdated}
                 isCartUpdated={isCartUpdated}
+                isCartOpen={isCartOpen}
+                setIsCartOpen={setIsCartOpen}
               />
             </div>
             {/* <SocialLinks /> */}

@@ -9,6 +9,11 @@ function ProductGallery({ images }) {
       breakpoint: { max: 4000, min: 0 },
       items: 1,
     },
+    mobile: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 800, min: 0 },
+      items: 0.2,
+    },
   };
   return (
     <Carousel
