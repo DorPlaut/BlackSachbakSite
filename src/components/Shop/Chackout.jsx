@@ -27,7 +27,7 @@ function Chackout({ setIsCartUpdated, isCartUpdated }) {
   const [shippingCost, setShippingCosts] = useState('');
   const [totalCost, setTotalCosts] = useState('');
   const [ispaying, setIsPaying] = useState(false);
-  const [orderNumber, setOrderNumber] = useState('2342345245');
+  const [orderNumber, setOrderNumber] = useState('');
 
   let isCheckingOut = true;
   // User info
@@ -143,9 +143,9 @@ function Chackout({ setIsCartUpdated, isCartUpdated }) {
 
   return (
     <section className="page" id="checkout-page">
-      <button className="btn" onClick={handlePayment}>
+      {/* <button className="btn" onClick={handlePayment}>
         i payd
-      </button>
+      </button> */}
       <div className="article checkout-page">
         <h3 className="article-heading">Checkout</h3>
         <div className="underline"></div>
@@ -379,9 +379,13 @@ function Chackout({ setIsCartUpdated, isCartUpdated }) {
           ''
         )}
       </div>
-      <div className="selected-product-container">
-        <OrderComplete orderNumber={orderNumber} />
-      </div>
+      {orderNumber ? (
+        <div className="selected-product-container">
+          <OrderComplete orderNumber={orderNumber} />
+        </div>
+      ) : (
+        ''
+      )}
     </section>
   );
 }
