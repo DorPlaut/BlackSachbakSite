@@ -5,7 +5,13 @@ import { useAuth0 } from '@auth0/auth0-react';
 import Login from '../components/UserSystem/Login';
 import Profile from '../components/UserSystem/Profile';
 
-function UserBox({ isMobile, setIsCartUpdated, isCartUpdated }) {
+function UserBox({
+  isMobile,
+  setIsCartUpdated,
+  isCartUpdated,
+  isCartOpen,
+  setIsCartOpen,
+}) {
   const { user, isAuthenticated, isLoading, handleRedirectCallback } =
     useAuth0();
 
@@ -36,6 +42,8 @@ function UserBox({ isMobile, setIsCartUpdated, isCartUpdated }) {
                   isMobile={isMobile}
                   setIsCartUpdated={setIsCartUpdated}
                   isCartUpdated={isCartUpdated}
+                  isCartOpen={isCartOpen}
+                  setIsCartOpen={setIsCartOpen}
                 />
               </div>
             ) : (

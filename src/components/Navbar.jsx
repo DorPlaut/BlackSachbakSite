@@ -8,6 +8,7 @@ import UserBox from './UserBox';
 function Navbar({ isMobile, setIsCartUpdated, isCartUpdated }) {
   // minimize function for mobile
   const [isMinimize, setIsMinimize] = useState(true);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   return (
     <>
@@ -38,15 +39,18 @@ function Navbar({ isMobile, setIsCartUpdated, isCartUpdated }) {
                   alt="logo"
                   className="navbar-logo-mobile"
                 />
+
                 <div className="user-box-page-mobile">
                   <UserBox
                     setIsCartUpdated={setIsCartUpdated}
                     isCartUpdated={isCartUpdated}
+                    isCartOpen={isCartOpen}
+                    setIsCartOpen={setIsCartOpen}
                   />
                 </div>
                 <br />
                 <div className="navlinks-mobile">
-                  <NavLinks isMobile={isMobile} />
+                  {isCartOpen ? '' : <NavLinks isMobile={isMobile} />}
                 </div>
               </div>
               <div id="social-nav-container">

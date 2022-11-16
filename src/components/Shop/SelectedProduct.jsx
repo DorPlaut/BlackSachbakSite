@@ -102,6 +102,19 @@ function SelectedProduct({
     });
     updatedPrice = variant[0].price;
   };
+  let variantPic;
+  const getPic = () => {
+    variant = variants.filter((i) => {
+      return specificVariant.indexOf(i.title) > -1;
+    });
+    variantPic = images.filter((i) => {
+      // console.log(variant[0].id);
+      // console.log(i.id);
+      if (i.id.includes(variant[0].id)) {
+        return i.img;
+      }
+    });
+  };
 
   // Reset all parameters when selecting different product
   useEffect(() => {
@@ -121,6 +134,8 @@ function SelectedProduct({
       getSKU();
       getPrice();
       if (variant[0].is_available) {
+        getPic();
+        console.log(variantPic[0].img);
         setOptions1('');
         setOptions2('');
         setOptions3('');
@@ -145,7 +160,7 @@ function SelectedProduct({
           colorAndSize: specificVariant,
           sku: sku,
           price: updatedPrice,
-          image: images[0].img,
+          image: variantPic[0].img,
           quantity: quantity,
         },
         {

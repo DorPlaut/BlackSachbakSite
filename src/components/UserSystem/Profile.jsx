@@ -5,8 +5,13 @@ import { BsFillCartFill } from 'react-icons/bs';
 import Logout from './Logout';
 import Cart from '../Shop/Cart';
 
-const Profile = ({ isMobile, setIsCartUpdated, isCartUpdated }) => {
-  const [isCartOpen, setIsCartOpen] = useState(false);
+const Profile = ({
+  isMobile,
+  setIsCartUpdated,
+  isCartUpdated,
+  isCartOpen,
+  setIsCartOpen,
+}) => {
   let isCheckingOut = false;
 
   const { user, isAuthenticated, isLoading, getAccessTokenSilently } =

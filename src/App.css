@@ -538,16 +538,23 @@ footer .social-link {
 }
 
 /* selected product page */
-.selected-product {
-  z-index: 1;
+.selected-product-container {
   position: fixed;
-  top: 5rem;
-  right: calc(50% - 25rem);
+  background: var(--fadedBlack);
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.selected-product {
+  z-index: 10;
+  padding: 0.1rem;
   background: var(--white);
-  width: calc(100vw - 3rem);
   max-width: 50rem;
   text-align: center;
-  box-shadow: 0 0 0 100rem rgba(0, 0, 0, 0.5);
   color: var(--black);
 }
 .selected-product h2 {

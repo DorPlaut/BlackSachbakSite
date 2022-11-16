@@ -60,7 +60,12 @@ function Products({ setIsCartUpdated, isCartUpdated }) {
             );
           })}
           {isSelected ? (
-            <div className="selected-product-container">
+            <div
+              className="selected-product-container"
+              onClick={() => {
+                setIsSelected(false);
+              }}
+            >
               <SelectedProduct
                 products={products}
                 selectedProduct={selectedProduct}

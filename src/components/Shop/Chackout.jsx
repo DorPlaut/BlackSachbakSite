@@ -8,6 +8,8 @@ import axios from 'axios';
 import { useAuth0 } from '@auth0/auth0-react';
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 import Cart from './Cart';
+import { Await } from 'react-router-dom';
+import OrderComplete from './OrderComplete';
 
 function Chackout({ setIsCartUpdated, isCartUpdated }) {
   const url = import.meta.env.VITE_SERVER_URL;
@@ -25,6 +27,7 @@ function Chackout({ setIsCartUpdated, isCartUpdated }) {
   const [shippingCost, setShippingCosts] = useState('');
   const [totalCost, setTotalCosts] = useState('');
   const [ispaying, setIsPaying] = useState(false);
+  const [orderNumber, setOrderNumber] = useState('2342345245');
 
   let isCheckingOut = true;
   // User info
@@ -59,7 +62,8 @@ function Chackout({ setIsCartUpdated, isCartUpdated }) {
     setIsCartUpdated(!isCartUpdated);
   }, []);
 
-  // calculate shipping costs
+  // SERVER FUNCTIONS
+  // Submit Order and calculate shipping
   const calculateShipping = async () => {
     if (country == 'Country') {
     }
@@ -97,6 +101,34 @@ function Chackout({ setIsCartUpdated, isCartUpdated }) {
       console.log(err);
     }
   };
+  const handlePayment = async () => {
+    try {
+      await axios.put;
+      const token = await getAccessTokenSilently();
+      await axios
+        .put(
+          `${url}/api/v1/orders/shipping`,
+          {
+            userId: user.sub,
+            paid: true,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        .then((response) => {
+          setOrderNumber(response.data.orderNumber);
+          setShippingCosts('');
+          setIsCartUpdated(!isCartUpdated);
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  // END OF SERVER FUNCTIONS
   const [action, setAction] = useState('');
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -111,6 +143,9 @@ function Chackout({ setIsCartUpdated, isCartUpdated }) {
 
   return (
     <section className="page" id="checkout-page">
+      <button className="btn" onClick={handlePayment}>
+        i payd
+      </button>
       <div className="article checkout-page">
         <h3 className="article-heading">Checkout</h3>
         <div className="underline"></div>
@@ -321,10 +356,15 @@ function Chackout({ setIsCartUpdated, isCartUpdated }) {
                           });
                         }}
                         onApprove={(data, actions) => {
-                          return actions.order.capture().then((details) => {
-                            const name = details.payer.name.given_name;
-                            alert(`Transaction completed by ${name}`);
-                          });
+                          return actions.order
+                            .capture()
+                            .then(async (details) => {
+                              await handlePayment();
+                              const name = details.payer.name.given_name;
+                              alert(
+                                `Thank you for buying some Thrash metal stuff. your order number is : ${orderNumber}`
+                              );
+                            });
                         }}
                       />
                     </PayPalScriptProvider>
@@ -338,6 +378,9 @@ function Chackout({ setIsCartUpdated, isCartUpdated }) {
         ) : (
           ''
         )}
+      </div>
+      <div className="selected-product-container">
+        <OrderComplete orderNumber={orderNumber} />
       </div>
     </section>
   );
