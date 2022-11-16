@@ -97,7 +97,6 @@ dt {
   background: var(--darkenImage), url('./assets/BackgroundHome.jpg');
   background-size: cover;
   background-position: center;
-  animation: BackroundAnimation 10s alternate infinite;
 }
 #musicPage {
   background: var(--darkenImage), url('./assets/BackgroundPage1.jpg');
@@ -285,7 +284,7 @@ dt {
   transition: var(--shortTransition);
   animation: Float 2s ease-in-out infinite;
 }
-#homeNav {
+#home-nav {
   background: var(--fadedBlackLight);
   position: absolute;
   bottom: 0;
@@ -419,7 +418,7 @@ footer .social-link {
     font-size: 3rem;
   }
   /* home page mobile */
-  #homeNav {
+  #home-nav {
     position: relative;
 
     width: 20rem;
@@ -484,14 +483,7 @@ footer .social-link {
     transform: translateY(0rem);
   }
 }
-@keyframes BackroundAnimation {
-  0% {
-    background-position-y: 0rem;
-  }
-  100% {
-    background-position-y: -0.9rem;
-  }
-}
+
 @keyframes FormAnimation {
   0% {
     background: var(--primaryColor2);

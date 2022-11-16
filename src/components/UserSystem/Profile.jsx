@@ -26,14 +26,14 @@ const Profile = ({
 
         <div className="user-profile-links ">
           <Logout />
-          <button
+          <a
             onClick={() => {
               setIsCartOpen(!isCartOpen);
             }}
             className="logout-link nav-link"
           >
             <BsFillCartFill /> Cart
-          </button>
+          </a>
         </div>
       </div>
       {isMobile ? (
