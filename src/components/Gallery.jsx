@@ -37,6 +37,7 @@ function Gallery() {
   return (
     <>
       <Carousel
+        className="carusel"
         responsive={responsive}
         id="gallery"
         infinite={true}

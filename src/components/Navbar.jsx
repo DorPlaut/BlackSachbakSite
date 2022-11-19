@@ -62,7 +62,7 @@ function Navbar({ isMobile, setIsCartUpdated, isCartUpdated }) {
       ) : (
         <nav className="nav">
           <div id="logo-nav-container">
-            <a href="#homePage">
+            <a href="#home-page">
               <img
                 src="https://raw.githubusercontent.com/DorPlaut/BlackSachbakSite/main/public/BSlogo.png"
                 alt="logo"

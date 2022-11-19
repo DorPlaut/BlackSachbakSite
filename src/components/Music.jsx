@@ -1,34 +1,47 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import MiniArticle from './MiniArticle';
 import BigArticle from './BigArticle';
 
 function Music() {
+  const [spotifyAlbum, setSpotifyAlbum] = useState('BSVTF');
   // ARTICLES
-  const spotifyPlayr = (
+  const spotifyPlayer = (
     <>
-      <div className="inner-tow-article-culumn">
-        <iframe
-          className="spotify"
-          src="https://open.spotify.com/embed/album/0IdPTp5UgtJNMqdaspjwTr?utm_source=generator"
-          width="100%"
-          height="250rem"
-          frameBorder="0"
-          allowFullScreen=""
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        ></iframe>
-        <iframe
-          src="https://open.spotify.com/embed/album/52xpL49cpS7sbfqCxsCTaa?utm_source=generator"
-          width="100%"
-          height="250rem"
-          frameBorder="0"
-          allowFullScreen=""
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        ></iframe>
+      <div className="article-btn-container">
+        <button
+          className="btn"
+          onClick={() => {
+            setSpotifyAlbum('BSVTF');
+          }}
+        >
+          Black Sachbak Vs The Future
+        </button>
+        <button
+          className="btn"
+          onClick={() => {
+            setSpotifyAlbum('NPNG');
+          }}
+        >
+          No Pain No Gain
+        </button>
       </div>
+      <iframe
+        className="spotify"
+        src={
+          spotifyAlbum == 'BSVTF'
+            ? 'https://open.spotify.com/embed/album/0IdPTp5UgtJNMqdaspjwTr?utm_source=generator'
+            : 'https://open.spotify.com/embed/album/52xpL49cpS7sbfqCxsCTaa?utm_source=generator'
+        }
+        width="100%"
+        height="250rem"
+        frameBorder="0"
+        allowFullScreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+      ></iframe>
     </>
   );
+
   const youtubePlayer = (
     <>
       <iframe
@@ -81,7 +94,7 @@ function Music() {
     <div className="page">
       <h3 className="article-heading">Music</h3>
       <div className="underline"></div>
-      <BigArticle heading="Full albums on spotify" content={spotifyPlayr} />
+      <MiniArticle heading="Full albums on spotify" content={spotifyPlayer} />
       <div className="tow-article-culumn">
         {/* <MiniArticle heading="Full albums on spotify" content={spotifyPlayr} />
         <MiniArticle heading="Get Our Music" content={content} /> */}

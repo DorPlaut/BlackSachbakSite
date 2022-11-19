@@ -59,7 +59,13 @@ function Footer() {
             </ul>
           </div>
         </div>
-        <p id="rights">all rights reservd. build by Dor Plaut</p>
+        <p id="rights">
+          &copy; 2022 Black Sachbak. build by{' '}
+          <a href="https://dorplaut.netlify.app/" target="blank">
+            Dor Plaut
+          </a>
+          . All Rights Reserved
+        </p>
       </div>
     </>
   );

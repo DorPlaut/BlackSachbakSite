@@ -14,16 +14,16 @@ import OrderComplete from './OrderComplete';
 function Chackout({ setIsCartUpdated, isCartUpdated }) {
   const url = import.meta.env.VITE_SERVER_URL;
 
-  const [firstName, setFirstName] = useState('First name');
-  const [lastName, setLastName] = useState('Last name');
-  const [email, setEmail] = useState('Email');
-  const [phone, setPhone] = useState('Phone');
+  const [firstName, setFirstName] = useState('Your name');
+  const [lastName, setLastName] = useState('Your last name');
+  const [email, setEmail] = useState('Your@email.com');
+  const [phone, setPhone] = useState('(+666)12-3456789');
   const [country, setCountry] = useState('');
   const [region, setRegion] = useState('');
-  const [address1, setAddress1] = useState('Address1');
-  const [address2, setAddress2] = useState('Address2');
-  const [city, setCity] = useState('City');
-  const [zip, setZip] = useState('zip code');
+  const [address1, setAddress1] = useState('Your address');
+  const [address2, setAddress2] = useState('apt, suite, etc...');
+  const [city, setCity] = useState('Your city');
+  const [zip, setZip] = useState('546187');
   const [shippingCost, setShippingCosts] = useState('');
   const [totalCost, setTotalCosts] = useState('');
   const [ispaying, setIsPaying] = useState(false);
