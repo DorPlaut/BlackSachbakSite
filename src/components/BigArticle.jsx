@@ -1,17 +1,13 @@
 import React from 'react';
 
-function BigArticle() {
+function BigArticle({ heading, content }) {
   return (
     <>
       <article className="big-article article">
-        <h3 className="article-heading">Tours</h3>
+        <h3 className="article-heading">{heading}</h3>
         <div className="underline"></div>
         <br />
-        <img
-          className="article-poster"
-          src="./blackSachbakPoster1.jpg"
-          alt=""
-        />
+        {content}
       </article>
     </>
   );

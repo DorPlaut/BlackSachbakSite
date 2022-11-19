@@ -13,7 +13,7 @@ function NavLinks({ isMobile }) {
             setIsShop(false);
           }}
           className="nav-link"
-          to="/#homePage"
+          to="/#home-page"
         >
           Home
         </HashLink>
@@ -25,7 +25,7 @@ function NavLinks({ isMobile }) {
             setIsShop(false);
           }}
           className="nav-link"
-          to="/#musicPage"
+          to="/#music-page"
         >
           Music
         </HashLink>
@@ -37,7 +37,7 @@ function NavLinks({ isMobile }) {
             setIsShop(false);
           }}
           className="nav-link"
-          to="/#toursPage"
+          to="/#tours-page"
         >
           Tours
         </HashLink>
@@ -49,7 +49,7 @@ function NavLinks({ isMobile }) {
             setIsShop(true);
           }}
           className="nav-link"
-          to="/shop#shopPage"
+          to="/shop#shop-page"
         >
           Shop
         </HashLink>

@@ -27,7 +27,7 @@ function Chackout({ setIsCartUpdated, isCartUpdated }) {
   const [shippingCost, setShippingCosts] = useState('');
   const [totalCost, setTotalCosts] = useState('');
   const [ispaying, setIsPaying] = useState(false);
-  const [orderNumber, setOrderNumber] = useState('');
+  const [orderNumber, setOrderNumber] = useState('3453');
 
   let isCheckingOut = true;
   // User info
@@ -143,9 +143,6 @@ function Chackout({ setIsCartUpdated, isCartUpdated }) {
 
   return (
     <section className="page" id="checkout-page">
-      {/* <button className="btn" onClick={handlePayment}>
-        i payd
-      </button> */}
       <div className="article checkout-page">
         <h3 className="article-heading">Checkout</h3>
         <div className="underline"></div>
@@ -360,10 +357,6 @@ function Chackout({ setIsCartUpdated, isCartUpdated }) {
                             .capture()
                             .then(async (details) => {
                               await handlePayment();
-                              const name = details.payer.name.given_name;
-                              alert(
-                                `Thank you for buying some Thrash metal stuff. your order number is : ${orderNumber}`
-                              );
                             });
                         }}
                       />

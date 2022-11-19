@@ -5,10 +5,10 @@ import Tours from './Tours';
 function MainPage() {
   return (
     <>
-      <section className="section" id="musicPage">
+      <section className="section" id="music-page">
         <Music />
       </section>
-      <section className="section" id="toursPage">
+      <section className="section" id="tours-page">
         <Tours />
       </section>
     </>

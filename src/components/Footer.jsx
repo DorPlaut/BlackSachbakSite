@@ -21,7 +21,7 @@ function Footer() {
                   onClick={() => {
                     setIsShop(false);
                   }}
-                  to="/#homePage"
+                  to="/#home-page"
                 >
                   Go back to home page
                 </HashLink>
@@ -31,7 +31,7 @@ function Footer() {
                   onClick={() => {
                     setIsShop(false);
                   }}
-                  to="/#musicPage"
+                  to="/#music-page"
                 >
                   Listen to some music
                 </HashLink>
@@ -41,7 +41,7 @@ function Footer() {
                   onClick={() => {
                     setIsShop(false);
                   }}
-                  to="/#toursPage"
+                  to="/#tours-page"
                 >
                   Catch us on tour
                 </HashLink>
@@ -51,7 +51,7 @@ function Footer() {
                   onClick={() => {
                     setIsShop(true);
                   }}
-                  to="/shop#shopPage"
+                  to="/shop#shop-page"
                 >
                   Shop for some merch
                 </HashLink>

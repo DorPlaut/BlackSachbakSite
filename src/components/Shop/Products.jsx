@@ -35,8 +35,6 @@ function Products({ setIsCartUpdated, isCartUpdated }) {
     fetchProductsData();
   }, []);
 
-  // GET SKU
-
   return (
     <>
       {isLoading ? (

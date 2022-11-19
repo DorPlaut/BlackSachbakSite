@@ -21,7 +21,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* scroll-snap-type: y mandatory; */
   scroll-behavior: smooth;
 }
 body {
@@ -79,36 +78,57 @@ dt {
   background: var(--primaryColor2);
   color: var(--white);
 }
-/* Page */
+/* PAGE */
 .page {
   height: 100%;
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.section {
+.tow-article-culumn {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.inner-tow-article-culumn {
   width: 100%;
-  height: 100vh;
-  scroll-snap-align: start;
+  display: grid;
+  grid-template-columns: auto auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.spotify:first-child {
+  padding-right: 1rem;
+}
+
+@media screen and (max-width: 800px) {
+  .tow-article-culumn {
+    grid-template-columns: auto;
+  }
+}
+.section {
+  padding: 6rem;
 }
 /* backround photos */
-#homePage {
+#home-page {
+  height: 100vh;
   background: var(--darkenImage), url('./assets/BackgroundHome.jpg');
   background-size: cover;
   background-position: center;
 }
-#musicPage {
+#music-page {
   background: var(--darkenImage), url('./assets/BackgroundPage1.jpg');
   background-size: cover;
   background-position: center;
 }
-#toursPage {
+#tours-page {
   background: var(--darkenImage), url('./assets/BackgroundPage2.jpg');
   background-size: cover;
   background-position: center;
 }
-#shopPage {
+#shop-page {
   background: var(--darkenImage), url('./assets/BackgroundPage2.jpg');
   background-size: cover;
   background-position: center;
@@ -121,19 +141,22 @@ dt {
 
 /* article */
 .article {
+  height: fit-content;
   background: var(--fadedBlack);
-  padding: 3rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin: 3rem;
+  margin: 2em;
+  text-align: center;
 }
 .mini-article {
-  width: 40rem;
+  width: calc(100vw - 5rem);
+  max-width: 40rem;
 }
 .big-article {
-  width: 80rem;
+  width: calc(100vw - 5rem);
+  max-width: 84rem;
 }
 .article-heading {
   font-size: 2rem;
@@ -149,16 +172,8 @@ dt {
   display: flex;
   justify-content: center;
 }
-.article-poster {
-  max-width: 25rem;
-}
-.article-inner-container {
-  max-width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+.article-img {
+  width: 35rem;
 }
 
 /* navbar */
@@ -396,18 +411,6 @@ footer .social-link {
 
 /* media quarrys */
 @media screen and (max-width: 800px) {
-  /* page mobile */
-  .page {
-    flex-direction: column;
-    max-width: 700px;
-  }
-  .big-article {
-    width: 40rem;
-  }
-  .article {
-    width: calc(100vw - 5rem);
-  }
-
   /* buttons and links mobile */
 
   .social-link {
@@ -497,12 +500,13 @@ footer .social-link {
 }
 
 /* SHOP */
+/* here! */
 .shop-page {
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 3.5rem;
+  padding: 6rem;
 }
 .products-container {
   display: grid;
@@ -545,7 +549,6 @@ footer .social-link {
 }
 .selected-product {
   pointer-events: all;
-
   z-index: 10;
   padding: 0.1rem;
   background: var(--white);
@@ -553,6 +556,9 @@ footer .social-link {
   text-align: center;
   color: var(--black);
 }
+/* .product-carusel-container {
+  width: 100rem;
+} */
 .selected-product h2 {
   margin: -2.5rem 0 1rem 0;
 }
@@ -560,6 +566,7 @@ footer .social-link {
 .selected-product-img {
   width: 24rem;
 }
+
 .selected-product p {
   margin: 0.2rem 3rem;
 }
@@ -717,6 +724,7 @@ footer .social-link {
   display: flex;
   align-items: center;
 }
+
 .cart-product-img {
   border-radius: 50%;
   height: 7rem;
@@ -809,6 +817,19 @@ footer .social-link {
   color: var(--white);
   font-size: 10rem;
 }
+
+.cheackout-on {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1rem;
+}
+.chackout-nav {
+  color: var(--white);
+  font-size: 1.2rem;
+  background: var(--fadedBlack);
+}
 @media screen and (max-width: 800px) {
   .cart-container {
     width: 27rem;
@@ -834,14 +855,3 @@ footer .social-link {
     padding: 1rem 3rem 0 3rem;
   }
 }
-
-.player {
-  border: 0;
-  width: 350px;
-  height: 470px;
-}
-
-/* @media screen and (max-width: 1000px) {
-  .cart-product {
-  }
-} */

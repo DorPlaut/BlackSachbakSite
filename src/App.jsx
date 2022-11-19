@@ -53,7 +53,7 @@ function App() {
         ) : (
           ''
         )}
-        <section className="section" id="homePage">
+        <section className="section" id="home-page">
           <Home
             isMobile={isMobile}
             setIsCartUpdated={setIsCartUpdated}
