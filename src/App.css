@@ -93,8 +93,7 @@ dt {
 }
 .inner-tow-article-culumn {
   width: 100%;
-  display: grid;
-  grid-template-columns: auto auto;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -106,6 +105,9 @@ dt {
 @media screen and (max-width: 800px) {
   .tow-article-culumn {
     grid-template-columns: auto;
+  }
+  .inner-tow-article-culumn {
+    flex-direction: column;
   }
 }
 .section {
@@ -174,6 +176,11 @@ dt {
 }
 .article-img {
   width: 35rem;
+}
+@media screen and (max-width: 800px) {
+  .article-img {
+    width: 20rem;
+  }
 }
 
 /* navbar */
