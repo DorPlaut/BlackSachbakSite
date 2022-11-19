@@ -27,7 +27,7 @@ function Chackout({ setIsCartUpdated, isCartUpdated }) {
   const [shippingCost, setShippingCosts] = useState('');
   const [totalCost, setTotalCosts] = useState('');
   const [ispaying, setIsPaying] = useState(false);
-  const [orderNumber, setOrderNumber] = useState('3453');
+  const [orderNumber, setOrderNumber] = useState('');
 
   let isCheckingOut = true;
   // User info
