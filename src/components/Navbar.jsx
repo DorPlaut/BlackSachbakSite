@@ -86,7 +86,7 @@ function Navbar({ isMobile, setIsCartUpdated, isCartUpdated }) {
         </nav>
       )}
       <div id="backUpBtnContainer">
-        <a href="#homePage" id="backUpBtn">
+        <a href="#home-page" id="backUpBtn">
           <BsFillArrowUpCircleFill />
         </a>
       </div>
