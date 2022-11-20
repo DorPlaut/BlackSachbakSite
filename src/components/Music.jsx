@@ -25,6 +25,7 @@ function Music() {
           No Pain No Gain
         </button>
       </div>
+      <br />
       <iframe
         className="spotify"
         src={
