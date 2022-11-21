@@ -116,19 +116,19 @@ dt {
 .home-background {
   width: 100vw;
   height: 130vh;
-  background: var(--darkenImage), url('./public/BackgroundHome.jpg');
+  background: var(--darkenImage), url('./assets/BackgroundHome.jpg');
   background-size: cover;
   background-position: center;
 }
 
 #music-page {
-  background: var(--darkenImage), url('./public/BackgroundPage1.jpg');
+  background: var(--darkenImage), url('./assets/BackgroundPage1.jpg');
   background-size: cover;
   background-position: center;
 }
 
 #tours-page {
-  background: var(--darkenImage), url('./public/BackgroundPage2.jpg');
+  background: var(--darkenImage), url('./assets/BackgroundPage2.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -138,12 +138,12 @@ dt {
 }
 
 #shop-page {
-  background: var(--darkenImage), url('./public/BackgroundPage2.jpg');
+  background: var(--darkenImage), url('./assets/BackgroundPage2.jpg');
   background-size: cover;
   background-position: center;
 }
 #checkout-page {
-  background: var(--darkenImage), url('./public/BackgroundPage1.jpg');
+  background: var(--darkenImage), url('./assets/BackgroundPage1.jpg');
   background-size: cover;
   background-position: center;
 }
