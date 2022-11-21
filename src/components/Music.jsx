@@ -93,7 +93,7 @@ function Music() {
   );
   const content = 'Not avilable...';
   return (
-    <Parallax speed={15} className="paralex-position">
+    <Parallax speed={20} className="paralex-position">
       <div className="page">
         <div>
           <div className="scroll-anchor" id="music"></div>

@@ -7,7 +7,7 @@ import Gallery from './Gallery';
 function MainPage() {
   return (
     <>
-      <Parallax speed={-15} className="paralex-position">
+      <Parallax speed={-20} className="paralex-position">
         <section className="section" id="music-page">
           <Music />
         </section>
@@ -16,7 +16,7 @@ function MainPage() {
       <div id="gallery">
         <Gallery />
       </div>
-      <Parallax speed={-15} className="paralex-position">
+      <Parallax speed={-20} className="paralex-position">
         <section className="section" id="tours-page">
           <Tours />
         </section>
