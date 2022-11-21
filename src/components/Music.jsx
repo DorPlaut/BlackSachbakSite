@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import MiniArticle from './MiniArticle';
 import BigArticle from './BigArticle';
+import { Parallax } from 'react-scroll-parallax';
 
 function Music() {
   const [spotifyAlbum, setSpotifyAlbum] = useState('BSVTF');
@@ -92,17 +93,20 @@ function Music() {
   );
   const content = 'Not avilable...';
   return (
-    <div className="page">
-      <h3 className="article-heading">Music</h3>
-      <div className="underline"></div>
-      <MiniArticle heading="Full albums on spotify" content={spotifyPlayer} />
-      <div className="tow-article-culumn">
-        {/* <MiniArticle heading="Full albums on spotify" content={spotifyPlayr} />
-        <MiniArticle heading="Get Our Music" content={content} /> */}
-        <MiniArticle heading="Music Videos" content={youtubePlayer} />
-        <MiniArticle heading="Live Shows" content={youtubePlayer2} />
+    <Parallax speed={15} className="paralex-position">
+      <div className="page">
+        <div>
+          <div className="scroll-anchor" id="music"></div>
+          <h3 className="section-heading">Music</h3>
+        </div>
+        <div className="underline"></div>
+        <MiniArticle heading="Full albums on spotify" content={spotifyPlayer} />
+        <div className="tow-article-culumn">
+          <MiniArticle heading="Music Videos" content={youtubePlayer} />
+          <MiniArticle heading="Live Shows" content={youtubePlayer2} />
+        </div>
       </div>
-    </div>
+    </Parallax>
   );
 }
 

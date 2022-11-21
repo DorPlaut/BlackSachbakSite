@@ -1,6 +1,7 @@
 import React from 'react';
 import BigArticle from './BigArticle';
 import MiniArticle from './MiniArticle';
+import { Parallax } from 'react-scroll-parallax';
 
 function Tours() {
   const content = (
@@ -37,14 +38,19 @@ function Tours() {
     </>
   );
   return (
-    <div className="page">
-      <h3 className="article-heading">Tours</h3>
-      <div className="underline"></div>
-      <div className="tow-article-culumn">
-        <MiniArticle heading="Allied Forces Tour" content={content} />
-        <MiniArticle heading="Fall Of The Empires Tour" content={content2} />
+    <Parallax speed={15} className="paralex-position">
+      <div className="page">
+        <div>
+          <div className="scroll-anchor" id="tours"></div>
+          <h3 className="section-heading">Tours</h3>
+        </div>
+        <div className="underline"></div>
+        <div className="tow-article-culumn">
+          <MiniArticle heading="Allied Forces Tour" content={content} />
+          <MiniArticle heading="Fall Of The Empires Tour" content={content2} />
+        </div>
       </div>
-    </div>
+    </Parallax>
   );
 }
 

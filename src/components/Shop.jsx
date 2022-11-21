@@ -5,7 +5,10 @@ function Shop({ setIsCartUpdated, isCartUpdated }) {
   return (
     <>
       <section className="page shop-page" id="shop-page">
-        <h3 className="article-heading">Shop</h3>
+        <div>
+          <div className="scroll-anchor" id="shop"></div>
+          <h3 className="section-heading">Shop</h3>
+        </div>
         <div className="underline"></div>
         <Products
           setIsCartUpdated={setIsCartUpdated}

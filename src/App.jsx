@@ -11,6 +11,8 @@ import Gallery from './components/Gallery';
 import Footer from './components/Footer';
 import Chackout from './components/Shop/Chackout';
 
+const wrappper = document.querySelector('.wrapper');
+
 function App() {
   // navbar visability
   const [isVisible, setIsVisible] = useState(false);
@@ -43,50 +45,50 @@ function App() {
 
   return (
     <>
-      <div className="section-container">
-        {isVisible ? (
-          <Navbar
-            isMobile={isMobile}
-            setIsCartUpdated={setIsCartUpdated}
-            isCartUpdated={isCartUpdated}
-          />
-        ) : (
-          ''
-        )}
-        <section className="" id="home-page">
-          <Home
-            isMobile={isMobile}
-            setIsCartUpdated={setIsCartUpdated}
-            isCartUpdated={isCartUpdated}
-          />
-        </section>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route
-            path="/Shop"
-            element={
-              <Shop
-                setIsCartUpdated={setIsCartUpdated}
-                isCartUpdated={isCartUpdated}
-              />
-            }
-          />
-          <Route
-            path="/chackout"
-            element={
-              <Chackout
-                setIsCartUpdated={setIsCartUpdated}
-                isCartUpdated={isCartUpdated}
-              />
-            }
-          />
-        </Routes>
-        <div id="gallery">
-          <Gallery />
+      <div className="wrapper">
+        <div className="section-container">
+          {isVisible ? (
+            <Navbar
+              isMobile={isMobile}
+              setIsCartUpdated={setIsCartUpdated}
+              isCartUpdated={isCartUpdated}
+            />
+          ) : (
+            ''
+          )}
+          <section className="" id="home-page">
+            <Home
+              isMobile={isMobile}
+              setIsCartUpdated={setIsCartUpdated}
+              isCartUpdated={isCartUpdated}
+            />
+          </section>
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route
+              path="/Shop"
+              element={
+                <Shop
+                  setIsCartUpdated={setIsCartUpdated}
+                  isCartUpdated={isCartUpdated}
+                />
+              }
+            />
+            <Route
+              path="/chackout"
+              element={
+                <Chackout
+                  setIsCartUpdated={setIsCartUpdated}
+                  isCartUpdated={isCartUpdated}
+                />
+              }
+            />
+          </Routes>
+
+          <footer>
+            <Footer />
+          </footer>
         </div>
-        <footer>
-          <Footer />
-        </footer>
       </div>
     </>
   );

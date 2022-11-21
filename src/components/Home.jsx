@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import NavLinks from './NavLinks';
 import SocialLinks from './SocialLinks';
 import UserBox from './UserBox';
+import { Parallax } from 'react-scroll-parallax';
 
 function Home({ isMobile, setIsCartUpdated, isCartUpdated }) {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -9,6 +10,9 @@ function Home({ isMobile, setIsCartUpdated, isCartUpdated }) {
   return (
     <>
       <div id="home">
+        <Parallax speed={-30}>
+          <div className="home-background"></div>
+        </Parallax>
         <div id="social-links-home">
           <SocialLinks />
         </div>
