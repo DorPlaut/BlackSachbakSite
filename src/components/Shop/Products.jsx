@@ -3,11 +3,14 @@ import Product from './Product';
 import SelectedProduct from './SelectedProduct';
 import axios from 'axios';
 import { GridLoader } from 'react-spinners';
+import TagsFilter from './TagsFilter';
 
 function Products({ setIsCartUpdated, isCartUpdated }) {
   const url = import.meta.env.VITE_SERVER_URL;
 
   const [isLoading, setIsLoading] = useState(true);
+
+  const [fullProductsList, setFullProductsList] = useState('');
   const [products, setProducts] = useState('');
   const [selectedProduct, setSelectedProduct] = useState(
     'VS The Future T-shirt FULL PRINT'
@@ -18,6 +21,7 @@ function Products({ setIsCartUpdated, isCartUpdated }) {
   const fetchProductsData = async () => {
     try {
       await axios.get(baseURL).then((response) => {
+        setFullProductsList(response.data);
         setProducts(response.data);
         setIsLoading(false);
       });
@@ -25,6 +29,13 @@ function Products({ setIsCartUpdated, isCartUpdated }) {
       console.log(error);
     }
   };
+  // FILTER BY CATEGORY
+  const [isTshirts, setIsTshirt] = useState(false);
+  const [isHoodies, setIsHoodies] = useState(false);
+  const [isHats, setIsHats] = useState(false);
+  const [isAccessories, setIsAccessories] = useState(false);
+  const [isHomeNLiving, setIsHomeNLiving] = useState(false);
+
   // HANDLE CLICKS
   const handleClickOnProduct = (title) => {
     setSelectedProduct(title);
@@ -42,34 +53,40 @@ function Products({ setIsCartUpdated, isCartUpdated }) {
           <GridLoader size={80} />
         </div>
       ) : (
-        <div className="products-container">
-          {products.map((product) => {
-            let price = product.variants[0].price.toString().split('');
-            price.splice(-2, 0, '.').toString();
-            return (
-              <Product
-                key={product.generalID}
-                title={product.title}
-                desc={product.desc}
-                price={price}
-                images={product.images}
-                handleClickOnProduct={handleClickOnProduct}
-              />
-            );
-          })}
-          {isSelected ? (
-            <div className="selected-product-container">
-              <SelectedProduct
-                products={products}
-                selectedProduct={selectedProduct}
-                setIsSelected={setIsSelected}
-                setIsCartUpdated={setIsCartUpdated}
-                isCartUpdated={isCartUpdated}
-              />
-            </div>
-          ) : (
-            ''
-          )}
+        <div>
+          <TagsFilter
+            fullProductsList={fullProductsList}
+            setProducts={setProducts}
+          />
+          <div className="products-container">
+            {products.map((product) => {
+              let price = product.variants[0].price.toString().split('');
+              price.splice(-2, 0, '.').toString();
+              return (
+                <Product
+                  key={product.generalID}
+                  title={product.title}
+                  desc={product.desc}
+                  price={price}
+                  images={product.images}
+                  handleClickOnProduct={handleClickOnProduct}
+                />
+              );
+            })}
+            {isSelected ? (
+              <div className="selected-product-container">
+                <SelectedProduct
+                  products={products}
+                  selectedProduct={selectedProduct}
+                  setIsSelected={setIsSelected}
+                  setIsCartUpdated={setIsCartUpdated}
+                  isCartUpdated={isCartUpdated}
+                />
+              </div>
+            ) : (
+              ''
+            )}
+          </div>
         </div>
       )}
     </>
