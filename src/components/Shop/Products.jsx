@@ -12,7 +12,7 @@ function Products({ setIsCartUpdated, isCartUpdated }) {
   const [fullProductsList, setFullProductsList] = useState('');
   const [products, setProducts] = useState('');
   const [selectedProduct, setSelectedProduct] = useState(
-    'VS The Future T-shirt FULL PRINT'
+    'VS The Future T-shirt'
   );
   const [isSelected, setIsSelected] = useState(false);
   // GET PRODUCTS
