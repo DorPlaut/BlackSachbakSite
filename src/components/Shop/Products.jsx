@@ -9,7 +9,6 @@ function Products({ setIsCartUpdated, isCartUpdated }) {
   const url = import.meta.env.VITE_SERVER_URL;
 
   const [isLoading, setIsLoading] = useState(true);
-
   const [fullProductsList, setFullProductsList] = useState('');
   const [products, setProducts] = useState('');
   const [selectedProduct, setSelectedProduct] = useState(
@@ -29,12 +28,6 @@ function Products({ setIsCartUpdated, isCartUpdated }) {
       console.log(error);
     }
   };
-  // FILTER BY CATEGORY
-  const [isTshirts, setIsTshirt] = useState(false);
-  const [isHoodies, setIsHoodies] = useState(false);
-  const [isHats, setIsHats] = useState(false);
-  const [isAccessories, setIsAccessories] = useState(false);
-  const [isHomeNLiving, setIsHomeNLiving] = useState(false);
 
   // HANDLE CLICKS
   const handleClickOnProduct = (title) => {
@@ -58,12 +51,16 @@ function Products({ setIsCartUpdated, isCartUpdated }) {
             fullProductsList={fullProductsList}
             setProducts={setProducts}
           />
+          <div className="notes-container">
+            <span>*Hover over a product picture to see more color options</span>
+          </div>
           <div className="products-container">
             {products.map((product) => {
               let price = product.variants[0].price.toString().split('');
               price.splice(-2, 0, '.').toString();
               return (
                 <Product
+                  isLoading={isLoading}
                   key={product.generalID}
                   title={product.title}
                   desc={product.desc}

@@ -4,12 +4,12 @@ import Tours from './Tours';
 import { Parallax } from 'react-scroll-parallax';
 import Gallery from './Gallery';
 
-function MainPage() {
+function MainPage({ isMobile }) {
   return (
     <>
       <Parallax speed={-20} className="paralex-position">
         <section className="section" id="music-page">
-          <Music />
+          <Music isMobile={isMobile} />
         </section>
       </Parallax>
 

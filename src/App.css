@@ -75,6 +75,12 @@ dt {
   cursor: pointer;
 }
 .tag {
+  background: var(--primaryColor);
+  border: none;
+  padding: 0.7rem;
+  margin: 0.4rem;
+  transition: 0.3s;
+  cursor: pointer;
   width: auto;
 }
 .btn:hover,
@@ -285,6 +291,7 @@ dt {
 /* back to the top button */
 #backUpBtnContainer {
   position: fixed;
+  z-index: 2;
   bottom: 0;
   left: 0;
   margin: 1rem;
@@ -550,6 +557,13 @@ footer .social-link {
   flex-direction: column;
   align-items: center;
 }
+.notes-container {
+  text-align: right;
+  margin-top: 1rem;
+  margin-bottom: -0.5rem;
+  color: var(--white);
+  font-size: 0.9rem;
+}
 .products-container {
   display: grid;
   grid-template-columns: auto auto auto;
@@ -586,7 +600,7 @@ footer .social-link {
 /* selected product page */
 .selected-product-container {
   pointer-events: none;
-  z-index: 1;
+  z-index: 3;
   position: fixed;
   background: var(--fadedBlack);
   top: 0;

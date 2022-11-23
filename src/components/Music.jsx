@@ -3,7 +3,7 @@ import MiniArticle from './MiniArticle';
 import BigArticle from './BigArticle';
 import { Parallax } from 'react-scroll-parallax';
 
-function Music() {
+function Music({ isMobile }) {
   const [spotifyAlbum, setSpotifyAlbum] = useState('BSVTF');
   // ARTICLES
   const spotifyPlayer = (
@@ -48,7 +48,7 @@ function Music() {
     <>
       <iframe
         width="100%"
-        height="300rem"
+        height={isMobile ? '235rem' : '300rem'}
         src="https://www.youtube.com/embed/FmkSts6PnsA"
         title="FTL"
         frameBorder="0"
@@ -59,7 +59,7 @@ function Music() {
 
       <iframe
         width="100%"
-        height="300rem"
+        height={isMobile ? '235rem' : '300rem'}
         src="https://www.youtube.com/embed/LY2IyCVFtdA"
         title="Haircut i never got"
         frameBorder="0"
@@ -72,7 +72,7 @@ function Music() {
     <>
       <iframe
         width="100%"
-        height="300rem"
+        height={isMobile ? '235rem' : '300rem'}
         src="https://www.youtube.com/embed/ngTlrJSwSrk"
         title="Obcene extreame"
         frameBorder="0"
@@ -82,7 +82,7 @@ function Music() {
       <br />
       <iframe
         width="100%"
-        height="300rem"
+        height={isMobile ? '235rem' : '300rem'}
         src="https://www.youtube.com/embed/4aIbTCCmHug"
         title="Full Show Levontin"
         frameBorder="0"

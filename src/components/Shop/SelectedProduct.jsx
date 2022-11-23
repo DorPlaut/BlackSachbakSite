@@ -25,6 +25,10 @@ function SelectedProduct({
   // specific values for displayd product
   const { images, options, variants, optionTypes, description } =
     productDetails;
+
+  const defaultImages = images.filter((i) => {
+    return i.isDefault;
+  });
   let price = productDetails.variants[0].price.toString().split('');
   price.splice(-2, 0, '.').toString();
   const [isAvilable, setIsAvilable] = useState(true);

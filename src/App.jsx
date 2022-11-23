@@ -64,7 +64,7 @@ function App() {
             />
           </section>
           <Routes>
-            <Route path="/" element={<MainPage />} />
+            <Route path="/" element={<MainPage isMobile={isMobile} />} />
             <Route
               path="/Shop"
               element={
