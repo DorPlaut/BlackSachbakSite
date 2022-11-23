@@ -440,7 +440,7 @@ footer .social-link {
 
 #gallery {
   margin-bottom: 1rem;
-  height: 16rem;
+  height: 18rem;
   position: relative;
   z-index: 1;
   box-shadow: 0 0 6.5rem 3rem black;
@@ -449,7 +449,7 @@ footer .social-link {
   z-index: 0;
 }
 .image {
-  height: 16rem;
+  height: 18rem;
 }
 
 /* media quarrys */

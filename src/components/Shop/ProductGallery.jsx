@@ -22,6 +22,7 @@ function ProductGallery({ images }) {
       autoPlay={true}
       autoPlaySpeed={3000}
       centerMode={true}
+      focusOnSelect={true}
     >
       {images.map((index) => {
         return (

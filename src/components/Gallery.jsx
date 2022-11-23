@@ -16,6 +16,7 @@ function Gallery() {
     'https://drive.google.com/uc?export=view&id=1TPQj4vFstUuGt2A2_fLuYwckgBrO1Ue1',
     'https://drive.google.com/uc?export=view&id=1FiHnkB75sAV-GEikr1sasbX63PGz6zJM',
     'https://drive.google.com/uc?export=view&id=1dLQTuj8714bYVWJmxVSKNVKJeuqboS_g',
+    // 'https://drive.google.com/uc?export=view&id=',
   ];
 
   const responsive = {
@@ -46,7 +47,7 @@ function Gallery() {
         id="gallery"
         infinite={true}
         autoPlay={true}
-        autoPlaySpeed={5000}
+        autoPlaySpeed={4000}
         centerMode={true}
         focusOnSelect={true}
       >
