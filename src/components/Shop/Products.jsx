@@ -70,6 +70,7 @@ function Products({ setIsCartUpdated, isCartUpdated }) {
                 />
               );
             })}
+
             {isSelected ? (
               <div className="selected-product-container">
                 <SelectedProduct
