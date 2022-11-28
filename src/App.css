@@ -148,9 +148,16 @@ dt {
 }
 
 #shop-page {
-  background: var(--darkenImage), url('./assets/BackgroundPage2.jpg');
-  background-size: cover;
-  background-position: center;
+  background: var(--darkenImage), url('./assets/BackgroundShop.jpg');
+  background-size: 100% auto;
+  background-repeat: repeat-y;
+  /* background-position: center; */
+}
+@media screen and (max-width: 800px) {
+  #shop-page {
+    background-size: 200% auto;
+    background-repeat: repeat-y;
+  }
 }
 #checkout-page {
   background: var(--darkenImage), url('./assets/BackgroundPage1.jpg');
