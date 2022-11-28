@@ -2,7 +2,7 @@ import React from 'react';
 import { BsSpotify, BsFacebook } from 'react-icons/bs';
 import { FaBandcamp } from 'react-icons/fa';
 import { SiYoutubemusic } from 'react-icons/si';
-import { AiFillInstagram, AiOutlineInstagram } from 'react-icons/ai';
+import { AiFillInstagram, AiFillApple } from 'react-icons/ai';
 
 function SocialLinks() {
   return (
@@ -13,6 +13,14 @@ function SocialLinks() {
           target="_blank"
         >
           <BsSpotify />
+        </a>
+      </li>
+      <li id="apple-link" className="social-link">
+        <a
+          href="https://music.apple.com/us/artist/black-sachbak/1186364784"
+          target="_blank"
+        >
+          <AiFillApple className="border" />
         </a>
       </li>
       <li id="facebook-link" className="social-link">

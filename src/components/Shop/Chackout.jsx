@@ -7,6 +7,8 @@ import {
 import axios from 'axios';
 import { useAuth0 } from '@auth0/auth0-react';
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
+import emailjs from '@emailjs/browser';
+
 import Cart from './Cart';
 import { Await } from 'react-router-dom';
 import OrderComplete from './OrderComplete';
@@ -129,6 +131,28 @@ function Chackout({ setIsCartUpdated, isCartUpdated }) {
   };
 
   // END OF SERVER FUNCTIONS
+  // HANDLE EMAILS
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        'YOUR_SERVICE_ID',
+        'YOUR_TEMPLATE_ID',
+        form.current,
+        'YOUR_PUBLIC_KEY'
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
   const [action, setAction] = useState('');
   const handleSubmit = async (event) => {
     event.preventDefault();

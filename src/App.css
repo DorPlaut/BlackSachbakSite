@@ -366,9 +366,9 @@ dt {
   margin: 0.3rem;
   transition: 0.2s;
 }
-.social-link .border {
-  outline: solid 0.1rem #dd22a5;
-  border: solid 0.3rem #dd22a5;
+.border {
+  outline: solid 0.1rem;
+  border: solid 0.3rem;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -388,6 +388,11 @@ dt {
 }
 #instagram-link a {
   color: #dd22a5;
+  outline: #dd22a5;
+  border: #dd22a5;
+}
+#apple-link a {
+  color: #dadada;
 }
 
 /* handle hover glowing */
